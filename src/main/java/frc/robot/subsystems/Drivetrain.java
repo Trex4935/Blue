@@ -4,32 +4,21 @@
 
 package frc.robot.subsystems;
 
-
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonFX;
-import com.kauailabs.navx.frc.AHRS;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
-import edu.wpi.first.wpilibj.geometry.Pose2d;
-
-import edu.wpi.first.wpilibj.kinematics.DifferentialDriveOdometry;
-import edu.wpi.first.wpilibj.kinematics.DifferentialDriveWheelSpeeds;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
-import frc.robot.TrajectoryRepo;
-import frc.robot.Extensions.Dashboard_Outputs;
-import edu.wpi.first.wpilibj.SPI;
-import frc.robot.Extensions.DriveEncoders;
-import frc.robot.Extensions.Limelight;
 
 
 public class Drivetrain extends SubsystemBase {
   // Motors
-  WPI_Talon leftFront;
-  WPI_Talon rightFront;
-  WPI_Talon leftRear;
-  WPI_Talon rightRear;
+  WPI_TalonSRX leftFront;
+  WPI_TalonSRX rightFront;
+  WPI_TalonSRX leftRear;
+  WPI_TalonSRX rightRear;
 
   // Controllers
   SpeedControllerGroup rightSide;
@@ -43,16 +32,16 @@ public class Drivetrain extends SubsystemBase {
 
     // Setup each of the motors for use later
     // Going to set any whole game settings here as well (like motor inversion)
-    leftFront = new WPI_Talon(Constants.leftFrontCanID);
+    leftFront = new WPI_TalonSRX(Constants.leftFrontCanID);
     leftFront.setInverted(Constants.inversion);
 
-    rightFront = new WPI_Talon(Constants.rightFrontCanID);
+    rightFront = new WPI_TalonSRX(Constants.rightFrontCanID);
     rightFront.setInverted(Constants.inversion);
 
-    leftRear = new WPI_Talon(Constants.leftRearCanID);
+    leftRear = new WPI_TalonSRX(Constants.leftRearCanID);
     leftRear.setInverted(Constants.inversion);
 
-    rightRear = new WPI_Talon(Constants.rightRearCanID);
+    rightRear = new WPI_TalonSRX(Constants.rightRearCanID);
     rightRear.setInverted(Constants.inversion);
 
     // create the speed controller groups for use in the differential drive
