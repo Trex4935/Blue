@@ -17,11 +17,24 @@ import com.ctre.phoenix.motorcontrol.InvertType;
 public final class Constants {
 
 	public static final Boolean inversion = true;
-	public static final int leftFrontCanID = 1;
-	public static final int rightFrontCanID = 2;
-	public static final int leftRearCanID = 3;
-	public static final int rightRearCanID = 4;
 	
+	// Left side
+	// Left front
+	public static final int leftFrontA = 11;
+	public static final int leftFrontB = 12;
+	// Left Read
+	public static final int leftRearA = 13;
+	public static final int leftRearB = 14;
+
+	// Right Side
+	// Right Front
+	public static final int rightFrontA = 21;
+	public static final int rightFrontB = 22;
+	// Right Rear
+	public static final int rightRearA = 23;
+	public static final int rightRearB = 24;
+	
+
 	public static final int rightTankAxis = 0;
 	public static final int leftTankAxis = 0;
 	public static final int xboxControllerPort = 0;

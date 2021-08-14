@@ -15,10 +15,14 @@ import frc.robot.Constants;
 
 public class Drivetrain extends SubsystemBase {
   // Motors
-  WPI_TalonSRX leftFront;
-  WPI_TalonSRX rightFront;
-  WPI_TalonSRX leftRear;
-  WPI_TalonSRX rightRear;
+  WPI_TalonSRX leftFrontA;
+  WPI_TalonSRX leftFrontB;
+  WPI_TalonSRX leftRearA;
+  WPI_TalonSRX leftRearB;
+  WPI_TalonSRX rightFrontA;
+  WPI_TalonSRX rightFrontB;
+  WPI_TalonSRX rightRearA;
+  WPI_TalonSRX rightRearB;
 
   // Controllers
   SpeedControllerGroup rightSide;
@@ -32,22 +36,36 @@ public class Drivetrain extends SubsystemBase {
 
     // Setup each of the motors for use later
     // Going to set any whole game settings here as well (like motor inversion)
-    leftFront = new WPI_TalonSRX(Constants.leftFrontCanID);
-    leftFront.setInverted(Constants.inversion);
+    leftFrontA = new WPI_TalonSRX(Constants.leftFrontA);
+    leftFrontA.setInverted(Constants.inversion);
 
-    rightFront = new WPI_TalonSRX(Constants.rightFrontCanID);
-    rightFront.setInverted(Constants.inversion);
+    leftFrontB = new WPI_TalonSRX(Constants.leftFrontB);
+    leftFrontB.setInverted(Constants.inversion);
 
-    leftRear = new WPI_TalonSRX(Constants.leftRearCanID);
-    leftRear.setInverted(Constants.inversion);
+    leftRearA = new WPI_TalonSRX(Constants.leftRearA);
+    leftRearA.setInverted(Constants.inversion);
 
-    rightRear = new WPI_TalonSRX(Constants.rightRearCanID);
-    rightRear.setInverted(Constants.inversion);
+    leftRearB = new WPI_TalonSRX(Constants.leftRearB);
+    leftRearB.setInverted(Constants.inversion);
 
+    rightFrontA = new WPI_TalonSRX(Constants.rightFrontA);
+    rightFrontA.setInverted(Constants.inversion);
+
+    rightFrontB = new WPI_TalonSRX(Constants.rightFrontB);
+    rightFrontB.setInverted(Constants.inversion);
+
+    rightRearA = new WPI_TalonSRX(Constants.rightRearA);
+    rightRearA.setInverted(Constants.inversion);
+
+    rightRearB = new WPI_TalonSRX(Constants.rightRearB);
+    rightRearB.setInverted(Constants.inversion);
+    
     // create the speed controller groups for use in the differential drive
     // each one should be a pairing of the motors on a given side of the robot
-    rightSide = new SpeedControllerGroup(rightFront, rightRear);
-    leftSide = new SpeedControllerGroup(leftFront, leftRear);
+    rightSide = new SpeedControllerGroup(rightFrontA,rightFrontB,rightRearA,rightRearB);
+    leftSide = new SpeedControllerGroup(leftFrontA, leftFrontB, leftRearA, leftRearB);
+    //rightSide = new SpeedControllerGroup(rightFront, rightRear);
+    //leftSide = new SpeedControllerGroup(leftFront, leftRear);
 
     // create the drive object that will control the differential drive
     // It needs both a set of left and right motors
