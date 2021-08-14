@@ -16,11 +16,14 @@ import com.ctre.phoenix.motorcontrol.InvertType;
  */
 public final class Constants {
 
-	public static final InvertType inversion = null;
-	public static final int leftFrontCanID = 0;
-	public static final int rightFrontCanID = 0;
-	public static final int leftRearCanID = 0;
-	public static final int rightRearCanID = 0;
+	public static final Boolean inversion = true;
+	public static final int leftFrontCanID = 1;
+	public static final int rightFrontCanID = 2;
+	public static final int leftRearCanID = 3;
+	public static final int rightRearCanID = 4;
 	
 	public static final int rightTankAxis = 0;
-	public static final int leftTankAxis = 0;}
+	public static final int leftTankAxis = 0;
+	public static final int xboxControllerPort = 0;
+
+	public static Double speedlimitCurrent = .75;}
