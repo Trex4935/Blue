@@ -35,8 +35,16 @@ public final class Constants {
 	public static final int rightRearB = 24;
 	
 
-	public static final int rightTankAxis = 0;
-	public static final int leftTankAxis = 0;
+	public static final int rightTankAxis = 5;
+	public static final int leftTankAxis = 1;
 	public static final int xboxControllerPort = 0;
 
-	public static Double speedlimitCurrent = .75;}
+	public static final int shooterMotor = 2;
+
+	public static final double aimSpeed = .1;
+
+	public static final int rtTrigger = 3;
+
+	public static double shooterTriggerID = 1;
+
+	public static Double speedlimitCurrent = 0.5;}
