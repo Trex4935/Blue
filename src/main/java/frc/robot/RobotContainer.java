@@ -11,7 +11,6 @@ import frc.robot.commands.AimShooterDown;
 import frc.robot.commands.AimShooterUp;
 import frc.robot.commands.DriveWithControllerCommand;
 import frc.robot.commands.ShooterTriggerCommand;
-//import frc.robot.commands.ShooterTriggerCommand;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
@@ -68,7 +67,7 @@ public class RobotContainer {
     new JoystickButton(controller, XboxController.Button.kA.value).whenHeld(aimShooterDown);
     new JoystickButton(controller, XboxController.Button.kB.value).whenHeld(aimShooterUp);
 
-    new RightTriggerBool().whileActiveOnce(shooterTrigger);
+    new RightTriggerBool().whileActiveContinuous(shooterTrigger);
   }
 
   /**

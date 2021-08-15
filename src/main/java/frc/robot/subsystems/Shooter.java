@@ -22,44 +22,40 @@ public class Shooter extends SubsystemBase {
     shooterAim = new WPI_TalonSRX(Constants.shooterMotor);
     shooterAim.setInverted(Constants.inversion);
 
-    shooterTrigger = new Solenoid(1,0);
-    shooterMag = new Solenoid(1,1);
+    shooterTrigger = new Solenoid(1, 0);
+    shooterMag = new Solenoid(1, 1);
 
   }
 
   @Override
-  public void periodic() {   
+  public void periodic() {
     // This method will be called once per scheduler run
   }
 
-
-// Move the shooter up
+  // Move the shooter up
   public void aimShooterUp() {
     shooterAim.set(Constants.aimSpeed);
 
   }
-// move the shooter down
+
+  // move the shooter down
   public void aimShooterDown() {
     shooterAim.set(-Constants.aimSpeed);
   }
 
-  public void aimShooterStop(){
+  // stop the aiming motor
+  public void aimShooterStop() {
     shooterAim.stopMotor();
   }
 
-  public void shooterTrigger(){
+  // Shoot
+  public void pewPew() {
     shooterTrigger.set(true);
-  }
-
-  public void shooterTriggerStop(){
+    Timer.delay(0.2);
     shooterTrigger.set(false);
     shooterMag.set(true);
-    //shooterMag.set(true);
-  }
-
-  public void shooterReload() {
+    Timer.delay(0.2);
     shooterMag.set(false);
   }
-
 
 }
