@@ -48,13 +48,27 @@ public class Shooter extends SubsystemBase {
     shooterAim.stopMotor();
   }
 
-  // Shoot
+  // shoot with delay
   public void pewPew() {
     shooterTrigger.set(true);
     Timer.delay(0.2);
     shooterTrigger.set(false);
     shooterMag.set(true);
     Timer.delay(0.2);
+    shooterMag.set(false);
+  }
+
+  public void shooterTrigger() {
+    shooterTrigger.set(true);
+  }
+
+  public void shooterTriggerStop() {
+    shooterTrigger.set(false);
+    shooterMag.set(true);
+    // shooterMag.set(true);
+  }
+
+  public void shooterReload() {
     shooterMag.set(false);
   }
 

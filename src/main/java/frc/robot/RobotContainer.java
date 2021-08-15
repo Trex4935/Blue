@@ -68,6 +68,9 @@ public class RobotContainer {
     new JoystickButton(controller, XboxController.Button.kB.value).whenHeld(aimShooterUp);
 
     new RightTriggerBool().whileActiveContinuous(shooterTrigger);
+
+    // new JoystickButton(controller,
+    // XboxController.Button.kX.value).whenPressed(shooterBackup);
   }
 
   /**
