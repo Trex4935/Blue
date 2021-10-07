@@ -50,12 +50,16 @@ public class Shooter extends SubsystemBase {
 
   // shoot with delay
   public void pewPew() {
+    // Open Air vavle to shoot ball
     shooterTrigger.set(true);
-    Timer.delay(0.2);
+    Timer.delay(0.3);
+    // Close vavle 
     shooterTrigger.set(false);
-    shooterMag.set(true);
-    Timer.delay(0.2);
+    // Open reload slot
     shooterMag.set(false);
+    Timer.delay(0.4);
+    // Close reload slot
+    shooterMag.set(true);
   }
 
   public void shooterTrigger() {
@@ -64,7 +68,7 @@ public class Shooter extends SubsystemBase {
 
   public void shooterTriggerStop() {
     shooterTrigger.set(false);
-    shooterMag.set(true);
+    shooterMag.set(false);
     // shooterMag.set(true);
   }
 
