@@ -22,8 +22,8 @@ public class Shooter extends SubsystemBase {
     shooterAim = new WPI_TalonSRX(Constants.shooterMotor);
     shooterAim.setInverted(Constants.inversion);
 
-    shooterTrigger = new Solenoid(1, 0);
-    shooterMag = new Solenoid(1, 1);
+    shooterTrigger = new Solenoid(1, 1);
+    shooterMag = new Solenoid(1, 0);
 
   }
 
