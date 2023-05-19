@@ -6,7 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.motorcontrol.MotorControllerGroup;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -25,8 +25,8 @@ public class Drivetrain extends SubsystemBase {
   WPI_TalonSRX rightRearB;
 
   // Controllers
-  SpeedControllerGroup rightSide;
-  SpeedControllerGroup leftSide;
+  MotorControllerGroup rightSide;
+  MotorControllerGroup leftSide;
 
   // Drives
   DifferentialDrive drive;
@@ -37,16 +37,16 @@ public class Drivetrain extends SubsystemBase {
     // Setup each of the motors for use later
     // Going to set any whole game settings here as well (like motor inversion)
     leftFrontA = new WPI_TalonSRX(Constants.leftFrontA);
-    leftFrontA.setInverted(Constants.inversion);
+    leftFrontA.setInverted(false);
 
     leftFrontB = new WPI_TalonSRX(Constants.leftFrontB);
-    leftFrontB.setInverted(Constants.inversion);
+    leftFrontB.setInverted(false);
 
     leftRearA = new WPI_TalonSRX(Constants.leftRearA);
-    leftRearA.setInverted(Constants.inversion);
+    leftRearA.setInverted(false);
 
     leftRearB = new WPI_TalonSRX(Constants.leftRearB);
-    leftRearB.setInverted(Constants.inversion);
+    leftRearB.setInverted(false);
 
     rightFrontA = new WPI_TalonSRX(Constants.rightFrontA);
     rightFrontA.setInverted(Constants.inversion);
@@ -62,10 +62,10 @@ public class Drivetrain extends SubsystemBase {
     
     // create the speed controller groups for use in the differential drive
     // each one should be a pairing of the motors on a given side of the robot
-    rightSide = new SpeedControllerGroup(rightFrontA,rightFrontB,rightRearA,rightRearB);
-    leftSide = new SpeedControllerGroup(leftFrontA, leftFrontB, leftRearA, leftRearB);
-    //rightSide = new SpeedControllerGroup(rightFront, rightRear);
-    //leftSide = new SpeedControllerGroup(leftFront, leftRear);
+    rightSide = new MotorControllerGroup(rightFrontA,rightFrontB,rightRearA,rightRearB);
+    leftSide = new MotorControllerGroup(leftFrontA, leftFrontB, leftRearA, leftRearB);
+    //rightSide = new MotorControllerGroup(rightFront, rightRear);
+    //leftSide = new MotorControllerGroup(leftFront, leftRear);
 
     // create the drive object that will control the differential drive
     // It needs both a set of left and right motors
@@ -88,6 +88,8 @@ public class Drivetrain extends SubsystemBase {
        controller.getRawAxis(Constants.leftTankAxis) * speedLimiter * -1);
 
 }
+
+
   // Method to just stop the drive
   public void stopDriveTrain() {
     drive.stopMotor();

@@ -6,6 +6,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+import edu.wpi.first.wpilibj.PneumaticsModuleType;
 import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -14,7 +15,7 @@ import frc.robot.Constants;
 public class Shooter extends SubsystemBase {
   /** Creates a new Shooter. */
   WPI_TalonSRX shooterAim;
-  Solenoid shooterTrigger;
+  Solenoid shooterSolenoid;
   Solenoid shooterMag;
 
   public Shooter() {
@@ -22,8 +23,8 @@ public class Shooter extends SubsystemBase {
     shooterAim = new WPI_TalonSRX(Constants.shooterMotor);
     shooterAim.setInverted(Constants.inversion);
 
-    shooterTrigger = new Solenoid(1, 1);
-    shooterMag = new Solenoid(1, 0);
+    shooterSolenoid = new Solenoid(1, PneumaticsModuleType.CTREPCM, 1);
+    shooterMag = new Solenoid(1,PneumaticsModuleType.CTREPCM, 0);
 
   }
 
@@ -50,11 +51,12 @@ public class Shooter extends SubsystemBase {
 
   // shoot with delay
   public void pewPew() {
+    System.out.println("-- Command Out --");
     // Open Air vavle to shoot ball
-    shooterTrigger.set(true);
+    shooterSolenoid.set(true);
     Timer.delay(0.3);
     // Close vavle 
-    shooterTrigger.set(false);
+    shooterSolenoid.set(false);
     // Open reload slot
     shooterMag.set(false);
     Timer.delay(0.4);
@@ -63,11 +65,11 @@ public class Shooter extends SubsystemBase {
   }
 
   public void shooterTrigger() {
-    shooterTrigger.set(true);
+    shooterSolenoid.set(true);
   }
 
   public void shooterTriggerStop() {
-    shooterTrigger.set(false);
+    shooterSolenoid.set(false);
     shooterMag.set(false);
     // shooterMag.set(true);
   }

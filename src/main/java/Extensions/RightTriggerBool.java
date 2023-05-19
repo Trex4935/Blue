@@ -4,15 +4,14 @@
 
 package Extensions;
 
-import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 
 /** Add your docs here. */
-public class RightTriggerBool extends Trigger {
+public class RightTriggerBool {
     // Overriding the tigger get method
-    @Override
-    public boolean get() {
+    
+    public static boolean getRightTrigger() {
         if (RobotContainer.controller.getRawAxis(Constants.rtTrigger) >= 0.25)
         {
             return true;

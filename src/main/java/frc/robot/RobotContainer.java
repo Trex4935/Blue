@@ -14,6 +14,7 @@ import frc.robot.commands.ShooterTriggerCommand;
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.subsystems.Drivetrain;
 
 /**
@@ -64,9 +65,12 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(controller, XboxController.Button.kA.value).whenHeld(aimShooterDown);
-    new JoystickButton(controller, XboxController.Button.kB.value).whenHeld(aimShooterUp);
-    new RightTriggerBool().whileActiveContinuous(shooterTrigger);
+    new JoystickButton(controller, XboxController.Button.kA.value).whileTrue(aimShooterDown);
+    new JoystickButton(controller, XboxController.Button.kB.value).whileTrue(aimShooterUp);
+//  new RightTriggerBool().whileActiveContinuous(shooterTrigger);
+    new JoystickButton(controller, XboxController.Button.kRightBumper.value).whileTrue(shooterTrigger);
+
+    
 
     // new JoystickButton(controller,
     // XboxController.Button.kX.value).whenPressed(shooterBackup);
